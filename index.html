@@ -37,7 +37,7 @@
 " />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Playfair+Display:wght@700;900&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" />
 
 <style>
 /* ==========================================================================
@@ -79,7 +79,6 @@
   /* Z-index */
   --z-sidebar: 100;
   --z-overlay: 90;
-  --z-loader: 9999;
 }
 /* ==========================================================================
    Base & reset
@@ -145,99 +144,6 @@ button {
 .tag-item__btn:focus-visible,
 .work-item__btn:focus-visible {
   outline-offset: -2px;
-}
-
-/* Loading overlay */
-.loader {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-page-bg);
-  color: var(--color-muted-text);
-  font-family: var(--font-serif);
-  z-index: var(--z-loader);
-  transition: opacity 0.4s ease;
-  animation: loader-failsafe 0.4s ease 5s forwards;
-}
-
-@keyframes loader-failsafe {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
-.loader.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.loader-inner {
-  text-align: center;
-  max-width: 360px;
-  padding: 0 20px;
-}
-
-.loader-title {
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--color-body-text);
-  margin-bottom: 16px;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-}
-
-.loader-sub {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  margin-bottom: 28px;
-  white-space: nowrap;
-}
-
-.loader-sub-wrap {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 28px;
-}
-
-.loader-dash {
-  display: block;
-  width: 18px;
-  height: 1px;
-  background: var(--color-accent);
-}
-
-.progress-wrap {
-  width: 100%;
-  height: 3px;
-  background: var(--color-border);
-  border-radius: 2px;
-  overflow: hidden;
-  position: relative;
-  margin-bottom: 14px;
-}
-
-.progress-bar {
-  position: absolute;
-  left: -40%;
-  top: 0;
-  height: 100%;
-  width: 40%;
-  background: linear-gradient(90deg, var(--color-accent), #B89968);
-  animation: indeterminate 1.4s ease-in-out infinite;
-}
-
-@keyframes indeterminate {
-  0%   { left: -40%; width: 40%; }
-  60%  { left: 100%; width: 40%; }
-  100% { left: 100%; width: 40%; }
 }
 
 /* ==========================================================================
@@ -1336,31 +1242,18 @@ button {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .loader { animation-delay: 5s !important; }
 }
 </style>
 </head>
 <body>
-  <div id="loader" class="loader" aria-hidden="true">
-<div class="loader-inner">
-  <div class="loader-title">Alan Rickman</div>
-  <div class="loader-sub-wrap">
-    <span class="loader-dash"></span>
-    <div class="loader-sub">Digital Archive</div>
-    <span class="loader-dash"></span>
-  </div>
-  <div class="progress-wrap">
-    <div class="progress-bar"></div>
-  </div>
-</div>
-</div>
 
   <div class="app">
     <aside id="sidebar" class="sidebar">
       <header class="sidebar__header">
         <p class="sidebar__eyebrow">DIGITAL ARCHIVE</p>
         <p class="sidebar__title">Alan Rickman</p>
-        <p class="sidebar__subtitle">1946–2016 · unofficial fan archive</p>
+        <p class="sidebar__subtitle">1946–2016 · curated by sectumsempra221</p>
+
       </header>
 
       <nav class="sidebar__tabs" role="tablist" aria-label="Browse mode">
@@ -1377,11 +1270,11 @@ button {
                <div class="sidebar-section">
           <ul id="tag-list" class="tag-list" role="list"></ul>
         </div>
+<footer class="site-footer">
+  <p>Unofficial fan archive, not affiliated with or endorsed by the estate of Alan Rickman or any studio or rights holder. Linked and quoted material belongs to its original authors.</p>
+  <p>© 2026 sectumsempra221. All rights reserved.</p>
+</footer>
 
-        <footer class="site-footer">
-          <p>Unofficial fan archive, not affiliated with or endorsed by the estate of Alan Rickman or any studio or rights holder.</p>
-          <p>© 2026 sectumsempra221</p>
-        </footer>
       </div>
 
    <div id="view-work" class="sidebar__panel sidebar__panel--split" hidden>
@@ -1638,7 +1531,7 @@ He is a legend😭 And, perhaps most importantly, the way he constantly roasted 
   { id: 10099, type: "link", title: "My Name Is Rachel Corrie — ebook of the script (Amazon)", subtitle: "", year: 2005, url: "https://www.amazon.com/Rachel-Corrie-ebook/dp/B00DKMVL0S", tags: ["My Name Is Rachel Corrie"], notes: [] },
   { id: 10100, type: "link", title: "My Name Is Rachel Corrie — Wikipedia", subtitle: "", year: 2005, url: "https://en.wikipedia.org/wiki/My_Name_Is_Rachel_Corrie", tags: ["My Name Is Rachel Corrie"], notes: [] },
   { id: 10101, type: "link", title: "Alan Rickman and the silencing of Palestine", subtitle: "Instagram video essay by @illeshamarie", year: 2025, url: "https://www.instagram.com/reel/DPwgvcoD1rn/", tags: ["My Name Is Rachel Corrie"], notes: [] },
-  { id: 10102, type: "link", title: "Alan Rickman and Palestine — directing My Name Is Rachel Corrie | Medium", subtitle: "I never imagined that the play would create such acute controversy. Many Jews supported it. The New York producer was Jewish and we held a discussion after every performance. Both Israelis and Palestinians participated in the discussions and there was no shouting in the theater. People simply listened to each other.", year: 2005, url: "https://thepalestineproject.medium.com/alan-rickman-and-palestine-514cb1fa96be", tags: ["My Name Is Rachel Corrie"], notes: [] },
+  { id: 10102, type: "link", title: "Alan Rickman and Palestine — directing My Name Is Rachel Corrie | Medium", subtitle: "I never imagined that the play would create such acute controversy. Many Jews supported it. The New York producer was Jewish and we held a discussion after every performance. Both Israelis and Palestinians participated in the discussions and there was no shouting in the theater. People simply listened to each other.", year:2007, url: "https://thepalestineproject.medium.com/alan-rickman-and-palestine-514cb1fa96be", tags: ["My Name Is Rachel Corrie"], notes: [] },
   { id: 10103, type: "link", title: "‘It’s good to feel scared from time to time’ | Press Gazette", subtitle: "Straight after Rachel was killed, extracts of her diary and emails appeared in The Guardian’s G2 magazine and Rickman apparently called the Royal Court and said, ‘This writing’s fantastic, you have to do something with it’.", year: 2005, url: "https://pressgazette.co.uk/archive-content/its-good-to-feel-scared-from-time-to-time/", tags: ["My Name Is Rachel Corrie"], notes: [] },
   { id: 10104, type: "link", title: "Rickman slams ‘censorship’ of play about US Gaza activist | The Guardian", subtitle: "", year: 2006, url: "https://www.theguardian.com/world/2006/feb/28/usa.israel", tags: ["My Name Is Rachel Corrie"], notes: [] },
   { id: 10105, type: "link", title: "Too Hot to Handle, Too Hot to Not Handle — The New York Times", subtitle: "", year: 2006, url: "https://www.nytimes.com/2006/03/06/theater/newsandfeatures/too-hot-to-handle-too-hot-to-not-handle.html", tags: ["My Name Is Rachel Corrie"], notes: [] },
@@ -1662,14 +1555,14 @@ He is a legend😭 And, perhaps most importantly, the way he constantly roasted 
   // ── Audiobooks ──
   { id: 10118, type: "link", title: "Audiobooks narrated by Alan Rickman | Audible", subtitle: "Includes The Return of the Native; Nelson Mandela’s Favorite African Folktales; Patrick Hamilton: Rope, Gaslight, Hangover Square and More; William Boyd: A BBC Radio Drama Collection; Thomas Middleton: The Changeling, Women Beware Women & More; Robert Browning: The Ring and the Book, The Pied Piper of Hamelin & more", year: 2026, url: "https://www.audible.com/search?searchNarrator=Alan+Rickman", tags: ["Audiobooks"], notes: [] },
 
- // ── Interview Excerpts (5) ──
+ // ── Interview Excerpts  ──
   { id: 10119, type: "link", title: "“I felt sorry for those women in the sex scenes”", subtitle: "Nobel Son", year: 2007, url: "https://fandomwire.com/i-felt-sorry-for-those-women-in-the-sx-scenes-harry-potter-star-alan-rickman-felt-guilty-after-his-bizarre-intimiate-scenes-in-his-romantic-movie-nobel-son/", tags: ["Interview Excerpts"], notes: [] },
   { id: 10120, type: "youtube", title: "Alan Rickman Radio Interview — BBC Radio Manchester, 28 June 2007, interviewed by Phil Wood, on The Ground Beneath Her Feet", subtitle: "(I have to remind our listeners that you suffered in your younger days with a speech problem, and, uh…) Alan: I don't know where you get this from. Have you been reading some terrible… book about me? (Only a birth certificate. Wait, which is that true? Did you have a problem with speech?) Alan: Um, I don't remember it. No. (It is rubbish, isn't it?) Alan: It is rubbish, uh, contained in the particular book that you may have been reading. (Well, I take it all back.)", year: 2007, url: "https://youtu.be/yuv_xn5NBfw", tags: ["Interview Excerpts"], notes: ["The book referred to is Alan Rickman: The Unauthorised Biography."] },
   { id: 10121, type: "link", title: "Alan Rickman interviewed by Süddeutsche Zeitung, 2011", subtitle: "SZ: Wir sprachen darüber, wie Sie Shakespeare gelesen haben. Ist es für einen Schauspieler nicht schwierig, so wenig zu tun? Rickman: Doch, das ist es. Ein gutes Drehbuch hilft einem dabei. Oder auch ein guter Regisseur wie Ang Lee, mit dem ich »Sinn und Sinnlichkeit« gedreht habe. SZ: Wie war das mit ihm? Rickman: Er ist Taiwanese, sein Englisch war… nicht immer großartig. Er hat am Set Zettelchen verteilt, über die man sehr lange nachgrübeln musste, weil sie in diesem Hongkong-Englisch verfasst waren. Emma Thompson hat das alles in ihrem Tagebuch aufgeschrieben und es mir erst kürzlich wieder erzählt. Sie hat nach einer Szene von Ang Lee übrigens einen Zettel bekommen, auf dem stand: »Emma, versuch' nicht so alt auszusehen.« SZ: Nicht sehr schmeichelhaft… Rickman: Ja, aber er meinte nicht »alt«, sondern »altklug«. Auf meinem Zettel jedenfalls stand: »Alan, sei subtiler – tu' mehr!« Ich gebe zu, etwas verwirrt gewesen zu sein. Tatsächlich wollte er mir auf diesem Weg mitteilen, dass ich von dem subtilen Zeug mehr machen sollte. Ich vertraue ihm bis heute. Beim Filmemachen kann man etwas lernen, das einem später sogar auf der Theaterbühne weiterhilft: Du kannst einfach nur dastehen, nichts sagen, nichts tun – aber solange du wirklich etwas denkst, wird die Kamera diesen Gedanken abbilden. Das finde ich sehr ermutigend.", year: 2011, url: "https://www.sueddeutsche.de/kultur/alan-rickman-ein-schauspielerleben-steckt-voller-letzter-tage-1.1117851", tags: ["Interview Excerpts"], notes: [] },
   { id: 10122, type: "link", title: "The thing is to take the work seriously, but to take yourself not seriously.", subtitle: "Alan quoting Judi Dench on acting", year: 2012, url: "https://www.instagram.com/reel/DMoMfMSxjV0/", tags: ["Interview Excerpts"], notes: [] },
   { id: 10123, type: "link", title: "Alan Rickman interview — Hilary A. White (Sunday Independent)", subtitle: "If you have a talent, all you have is a responsibility to it, you can’t take credit for it. It’s an accident of something or other. Somebody else is a brilliant firefighter.", year: 2015, url: "https://hilwhite.wordpress.com/2015/04/16/alan-rickman-interview/", tags: ["Interview Excerpts"], notes: [] },
 
- // ── Interviews (22) ──
+ // ── Interviews  ──
   { id: 10124, type: "link", title: "British GQ, July 1992 cover interview: Alan Rickman: the performer to whom labels did not apply", subtitle: "", year: 1992, url: "https://www.gq-magazine.co.uk/article/alan-rickman-interview-1992-die-hard", tags: ["Interviews"], notes: [] },
   { id: 10125, type: "youtube", title: "The Winter Guest — interview", subtitle: "Alan promoting his directorial debut in Japan", year: 1998, url: "https://youtu.be/hUsj2O3dKuc", tags: ["Interviews"], notes: [] },
   { id: 10126, type: "youtube", title: "Bottle Shock — Exclusive: Alan Rickman Interview", subtitle: "", year: 2008, url: "https://youtu.be/TpDBdhBI4bs", tags: ["Interviews"], notes: [] },
@@ -1693,11 +1586,11 @@ He is a legend😭 And, perhaps most importantly, the way he constantly roasted 
   { id: 10144, type: "link", title: "Alan Rickman: The Empire Interview | Empire", subtitle: "", year: 2016, url: "https://www.empireonline.com/movies/features/alan-rickman-interview/", tags: ["Interviews"], notes: [] },
   { id: 10145, type: "youtube", title: "Ang Lee and Alan Rickman on working with each other", subtitle: "Sense and Sensibility", year: 2016, url: "https://youtu.be/qUhAEz2P9lw", tags: ["Interviews"], notes: [] },
 
-  // ── Work & Recordings (20) ──
+  // ── Work & Recordings ──
   { id: 10146, type: "link", title: "The RCA Journal — the Alan Rickman issues | It’s Nice That", subtitle: "The student journal he designed at the Royal College of Art", year: 1969, url: "https://www.itsnicethat.com/articles/the-rca-journal-the-alan-rickman-issues", tags: ["Work & Recordings"], notes: [] },
   { id: 10147, type: "link", title: "Sherlock Holmes (1976 play, with Alan Rickman)", subtitle: "The Arthur Conan Doyle Encyclopedia", year: 1976, url: "https://www.arthur-conan-doyle.com/wiki/Sherlock_Holmes_(play_1976_with_Alan_Rickman)", tags: ["Work & Recordings"], notes: [] },
-  { id: 10148, type: "youtube", title: "The Seagull — BBC Radio, Part 1", subtitle: "Alan Rickman as Trigorin, in Thomas Kilroy’s Irish adaptation", year: 1982, url: "https://www.youtube.com/watch?v=nUaIr2Ypc_o", tags: ["Work & Recordings"], notes: [] },
-  { id: 10149, type: "youtube", title: "The Seagull — BBC Radio, Part 3", subtitle: "Alan Rickman as Trigorin, in Thomas Kilroy’s Irish adaptation", year: 1982, url: "https://www.youtube.com/watch?v=BFNosLYR6ew", tags: ["Work & Recordings"], notes: [] },
+  { id: 10148, type: "youtube", title: "The Seagull — BBC Radio, Part 1", subtitle: "Alan Rickman as Trigorin, in Thomas Kilroy’s Irish adaptation", year: 1987, url: "https://www.youtube.com/watch?v=nUaIr2Ypc_o", tags: ["Work & Recordings"], notes: [] },
+  { id: 10149, type: "youtube", title: "The Seagull — BBC Radio, Part 3", subtitle: "Alan Rickman as Trigorin, in Thomas Kilroy’s Irish adaptation", year: 1987, url: "https://www.youtube.com/watch?v=BFNosLYR6ew", tags: ["Work & Recordings"], notes: [] },
   { id: 10150, type: "youtube", title: "Wetherby (1985) — Alan Rickman as a TV commentator", subtitle: "His first appearance in a feature film, though he had been working in television since 1978", year: 1985, url: "https://www.youtube.com/watch?v=1kEVwIB3IbQ", tags: ["Work & Recordings"], notes: [] },
   { id: 10151, type: "link", title: "A Little Like Drowning (BBC, 20 March 1989) — Anthony Minghella", subtitle: "A BBC radio play, with Alan Rickman as Alfredo", year: 1989, url: "https://archive.org/details/anthony-minghella-a-little-like-drowning-bbc-1989-03-20", tags: ["Work & Recordings"], notes: [] },
   { id: 10152, type: "youtube", title: "Revolutionary Witness: The Preacher (1989)", subtitle: "", year: 1989, url: "https://www.youtube.com/watch?v=nXZqq2smuHs", tags: ["Work & Recordings"], notes: [] },
@@ -1715,7 +1608,7 @@ He is a legend😭 And, perhaps most importantly, the way he constantly roasted 
   { id: 10164, type: "youtube", title: "The Boy in the Bubble — a short film by Kealan O'Rourke, narrated by Alan Rickman", subtitle: "On first love", year: 2011, url: "https://youtu.be/3vsAoEyQIIE", tags: ["Work & Recordings"], notes: [] },
   { id: 10165, type: "youtube", title: "DUST — short film with Alan Rickman & Jodie Whittaker", subtitle: "", year: 2013, url: "https://youtu.be/LDop0Je7svk", tags: ["Work & Recordings"], notes: [] },
 
-  // ── Public Life & Advocacy (11) ──
+  // ── Public Life & Advocacy ──
   { id: 10166, type: "youtube", title: "Alan Rickman wins Best Supporting Actor for Robin Hood: Prince of Thieves", subtitle: "BAFTA Film Awards 1992", year: 1992, url: "https://youtu.be/ICdPZKc9bVY", tags: ["Public Life & Advocacy"], notes: [] },
   { id: 10167, type: "link", title: "Comme des Garçons Homme Plus — Paris AW 1993", subtitle: "Alan on the runway", year: 1993, url: "https://www.instagram.com/p/CDqjKGRKgjT/", tags: ["Public Life & Advocacy"], notes: [] },
   { id: 10168, type: "youtube", title: "Alan Rickman accepts the Golden Bear for Sense and Sensibility on Ang Lee’s behalf", subtitle: "", year: 1996, url: "https://youtu.be/mPiky_iHW3Q", tags: ["Public Life & Advocacy"], notes: [] },
@@ -1728,7 +1621,7 @@ He is a legend😭 And, perhaps most importantly, the way he constantly roasted 
   { id: 10175, type: "youtube", title: "This Tortoise Could Save a Life — Alan Rickman’s voiceover for a refugee fundraiser", subtitle: "A 30-second video by OneClickGiving, a charity founded by Oxford students. Ad revenue from every view goes to Save the Children and the Refugee Council. Recorded at his home in November 2015; one of his last recordings.", year: 2015, url: "https://youtu.be/HkiMz-e2ZcE", tags: ["Public Life & Advocacy"], notes: [] },
   { id: 10176, type: "link", title: "Alan Rickman | Golden Globes", subtitle: "", year: 2026, url: "https://goldenglobes.com/person/alan-rickman/", tags: ["Public Life & Advocacy"], notes: [] },
 
-  // ── Legacy & Resources (14) ──
+  // ── Legacy & Resources ──
   { id: 10177, type: "link", title: "Alan Rickman’s 10 favourite songs of all time", subtitle: "", year: 2016, url: "https://faroutmagazine.co.uk/alan-rickman-10-favourite-songs-of-all-time/", tags: ["Legacy & Resources"], notes: [] },
   { id: 10178, type: "link", title: "10 Surprising Facts About Alan Rickman", subtitle: "", year: 2016, url: "https://www.mentalfloss.com/article/92438/10-surprising-facts-about-alan-rickman", tags: ["Legacy & Resources"], notes: [] },
   { id: 10179, type: "link", title: "10 Stories About Alan Rickman That Prove He Was a Man of Endless Kindness | Bright Side", subtitle: "", year: 2016, url: "https://brightside.me/articles/10-stories-about-alan-rickman-that-prove-he-was-a-man-of-endless-kindness-800762/", tags: ["Legacy & Resources"], notes: [] },
@@ -1843,7 +1736,7 @@ const WW_DATA = [
   { id: 20092, type: "link", title: "Leading Questions (The Times Magazine, Mar 1994)", subtitle: "Director Roger Spottiswoode on Rickman’s willingness to play Mesmer’s unlikeable side, and on how far he stayed in character between takes", year: 1994, url: "https://wordswithalan.wordpress.com/1994/03/12/leading-questions/", tags: ["Other Materials"], notes: [] },
   { id: 20093, type: "link", title: "An Actor Short on Words, Long on Presence (Christian Science Monitor, Dec 1993)", subtitle: "From the Mesmer press coverage, December 1993", year: 1993, url: "https://wordswithalan.wordpress.com/1993/12/14/an-actor-short-on-words-long-on-presence/", tags: ["Other Materials"], notes: [] },
   { id: 20094, type: "link", title: "Rickman and the Female Orgasm (Evening Standard, Oct 1993)", subtitle: "A Mesmer Q&A", year: 1993, url: "https://wordswithalan.wordpress.com/1993/10/22/rickman-and-the-female-orgasm/", tags: ["Other Materials"], notes: [] },
-  { id: 20095, type: "link", title: "The Leading Man (British GQ, July 1992)", subtitle: "Cover interview — the same July 1992 GQ piece filed above as the Die Hard interview", year: 1992, url: "https://wordswithalan.wordpress.com/1992/07/01/the-leading-man/", tags: ["Other Materials"], notes: [] },
+  { id: 20095, type: "link", title: "The Leading Man (British GQ, July 1992)", subtitle: "", year: 1992, url: "https://wordswithalan.wordpress.com/1992/07/01/the-leading-man/", tags: ["Other Materials"], notes: [] },
   { id: 20096, type: "link", title: "Evil Elegance: Leading Men Pale Beside Alan Rickman’s Seductive Villains (Lear’s, 1992)", subtitle: "On Die Hard", year: 1992, url: "https://wordswithalan.wordpress.com/1992/07/01/evil-elegance-leading-men-pale-beside-alan-rickmans-seductive-villains/", tags: ["Other Materials"], notes: [] },
   { id: 20097, type: "link", title: "Mellow Drama (Big Issue, May 1992)", subtitle: "", year: 1992, url: "https://wordswithalan.wordpress.com/1992/05/01/mellow-drama/", tags: ["Other Materials"], notes: [], pin: true },
   { id: 20098, type: "link", title: "Truly, Madly, Weepily (Radio Times, Feb 1992)", subtitle: "", year: 1992, url: "https://wordswithalan.wordpress.com/1992/02/29/truly-madly-weepily/", tags: ["Other Materials"], notes: [] },
@@ -1894,7 +1787,7 @@ const ALL_DATA = [
 // ════════════════════════════════════════════════════════════════════════════
 
 const AWARDS_BY_WORK = {
-  "Die Hard": ["☐ AFI — 100 Years…100 Heroes & Villains (#46 Villain, 2003)"],
+  "Die Hard": ["✓ AFI — 100 Years…100 Heroes & Villains (#46 Villain, 2003)"],
   "Quigley Down Under": ["✓ London Film Critics' Circle — British Actor of the Year (Won, 1992)"],
   "Robin Hood": ["✓ BAFTA — Best Actor in a Supporting Role (Won, 1992)", "✓ London Film Critics' Circle — British Actor of the Year (Won, 1992)", "✓ Evening Standard British Film Awards — Best Actor (Won, 1992)", "☐ Saturn Award — Best Supporting Actor (Nom, 1992)", "☐ MTV Movie Award — Best Villain (Nom, 1992)", "☐ Chicago Film Critics Association Award — Best Supporting Actor (Nom, 1991)"],
   "Truly Madly Deeply": ["✓ Evening Standard British Film Awards — Best Actor (Won, 1992)", "✓ London Film Critics' Circle — British Actor of the Year (Won, 1992)", "✓ Seattle International Film Festival — Golden Space Needle Award for Best Actor (Won, 1991) [also for Close My Eyes]", "☐ BAFTA — Best Actor in a Leading Role (Nom, 1992)"],
@@ -1906,17 +1799,17 @@ const AWARDS_BY_WORK = {
   "The Winter Guest": ["✓ Venice Film Festival — OCIC Award (Won, 1997) [as director]", "✓ Venice Film Festival — CinemAvvenire Award (Won, 1997) [as director]", "✓ Chicago International Film Festival — Gold Hugo – Best Film (Won, 1997) [as director]", "✓ Brussels International Film Festival — Audience Award (Won, 1998) [as director]", "☐ Venice Film Festival — Golden Lion (Nom, 1997) [as director]", "☐ Chlotrudis Award — Best Director (Nom, 1998)", "☐ Chlotrudis Award — Best Movie (Nom, 1998) [as director]", "☐ Czech Lion — Best Foreign Language Film (Nom, 1999) [as director]"],
   "Dogma": ["☐ Satellite Award — Best Supporting Actor – Motion Picture (Nom, 1999)"],
   "Galaxy Quest": ["☐ Saturn Award — Best Supporting Actor (Nom, 2000)"],
-  "Harry Potter": ["☐ Phoenix Film Critics Society Award — Best Acting Ensemble (Nom, 2002) [Harry Potter and the Chamber of Secrets]", "✓ Scream Award — Best Ensemble (Won, 2009)", "✓ MTV — Favorite Harry Potter Character Portrayal, online poll (Won, 2011)", "✓ San Diego Film Critics Society Award — Best Ensemble Performance (Won, 2011)", "☐ Washington D.C. Area Film Critics Association Award — Best Cast (Nom, 2011)", "☐ St. Louis Gateway Film Critics Association Award — Best Supporting Actor (Nom, 2011)", "☐ Scream Award — Best Supporting Actor (Nom, 2011)", "☐ Scream Award — Best Ensemble (Nom, 2011)", "✓ People's Choice Award — Favorite Ensemble Movie Cast (Won, 2012)", "☐ Alliance of Women Film Journalists (EDA Award) — Best Supporting Actor (Nom, 2012)", "☐ Saturn Award — Best Supporting Actor (Nom, 2012)", "☐ BAFTA — Best Supporting Actor (Longlisted only, 2012) [unverified]"],
+  "Harry Potter": ["☐ Phoenix Film Critics Society Award — Best Acting Ensemble (Nom, 2002) [Harry Potter and the Chamber of Secrets]", "✓ Scream Award — Best Ensemble (Won, 2009)", "✓ MTV — Favorite Harry Potter Character Portrayal, online poll (Won, 2011)", "✓ San Diego Film Critics Society Award — Best Ensemble Performance (Won, 2011)", "☐ Washington D.C. Area Film Critics Association Award — Best Cast (Nom, 2011)", "☐ St. Louis Gateway Film Critics Association Award — Best Supporting Actor (Nom, 2011)", "☐ Scream Award — Best Supporting Actor (Nom, 2011)", "☐ Scream Award — Best Ensemble (Nom, 2011)", "✓ People's Choice Award — Favorite Ensemble Movie Cast (Won, 2012)", "☐ Alliance of Women Film Journalists (EDA Award) — Best Supporting Actor (Nom, 2012)", "☐ Saturn Award — Best Supporting Actor (Nom, 2012)", "☐ BAFTA — Best Supporting Actor (Longlisted only, 2012) "],
   "Love Actually": ["☐ Broadcast Film Critics Association Award — Best Acting Ensemble (Nom, 2004)", "☐ Phoenix Film Critics Society Award — Best Acting Ensemble (Nom, 2004)"],
   "Sweeney Todd": ["☐ Saturn Award — Best Supporting Actor (Nom, 2008)", "☐ Scream Award — Best Villain (Nom, 2008)", "☐ Broadcast Film Critics Association Award — Best Acting Ensemble (Nom, 2008)"],
   "Something the Lord Made": ["☐ Primetime Emmy Award — Outstanding Lead Actor in a Miniseries or a Movie (Nom, 2004)", "☐ Satellite Award — Best Actor – Miniseries or Television Film (Nom, 2005)"],
-  "The Butler": ["☐ Acapulco Black Film Festival — Hollywood Award for Best Ensemble Cast (Nom, 2014) [unverified]", "☐ Screen Actors Guild Award — Outstanding Performance by a Cast in a Motion Picture (Nom, 2014)"],
+  "The Butler": ["☐ Acapulco Black Film Festival — Hollywood Award for Best Ensemble Cast (Nom, 2014) ", "☐ Screen Actors Guild Award — Outstanding Performance by a Cast in a Motion Picture (Nom, 2014)"],
   "Les Liaisons Dangereuses": ["☐ Tony Award — Best Actor in a Play (Nom, 1987)", "☐ Drama Desk Award — Outstanding Actor in a Play (Nom, 1987)"],
-  "Private Lives": ["☐ Evening Standard Theatre Award — Best Actor (Nom, 2001)", "✓ Variety Club Award — Best Actor (Won, 2001/2002) [year uncertain]", "✓ Theatregoers' Choice (WhatsOnStage) Award — Best Actor in a Play (Won, 2002)", "✓ Broadway.com Audience Choice Award — Favorite Actor in a Play (Won, 2002)", "☐ Laurence Olivier Award — Best Actor (Nom, 2002)", "☐ Tony Award — Best Actor in a Play (Nom, 2002)", "☐ Drama Desk Award — Outstanding Actor in a Play (Nom, 2002)"],
+  "Private Lives": ["☐ Evening Standard Theatre Award — Best Actor (Nom, 2001)", "✓ Variety Club Award — Best Actor (Won, 2002)", "✓ Theatregoers' Choice (WhatsOnStage) Award — Best Actor in a Play (Won, 2002)", "✓ Broadway.com Audience Choice Award — Favorite Actor in a Play (Won, 2002)", "☐ Laurence Olivier Award — Best Actor (Nom, 2002)", "☐ Tony Award — Best Actor in a Play (Nom, 2002)", "☐ Drama Desk Award — Outstanding Actor in a Play (Nom, 2002)"],
   "Seminar": ["☐ Drama League Award — Distinguished Performance Award (Nom, 2012)", "✓ Broadway.com Audience Choice Award — Favorite Actor in a Play (Won, 2012)"],
   "Snow Cake": ["☐ Seattle International Film Festival — Golden Space Needle Award for Best Actor (1st Runner-up, 2006)"],
   "Bottle Shock": ["✓ Seattle International Film Festival — Golden Space Needle Award for Best Actor (Won, 2008)"],
-  "Eye in the Sky": ["☐ Evening Standard British Film Awards — Best Supporting Actor (Nom, 2017) [unverified]"],
+  "Eye in the Sky": ["☐ Evening Standard British Film Awards — Best Supporting Actor (Nom, 2017)"],
   "My Name Is Rachel Corrie": ["✓ Theatregoers' Choice Awards — Best Director (Won, 2006)", "✓ Theatregoers' Choice Awards — Best New Play (Won, 2006)"],
   "Audiobook": ["✓ Audie Award — Audiobook of the Year (Won, 2010)", "✓ Audie Award — Multi-Voiced Performance (Won, 2010)"],
   "A Promise": ["✓ Beijing International Film Festival — Tiantan Award for Best Supporting Actor (Won, 2014)"]
@@ -2041,48 +1934,51 @@ const WW_PERIODS = [
 
       // ---- 1982 ----
       { tag: "Salvation Now", label: "Salvation Now", year: 1982, role: "Hector Dupoids (RSC Warehouse, London — stage)", type: "stage" },
-      { tag: "Seagull Radio", label: "The Seagull (radio version)", year: 1982, role: "Mr. Aston [Trigorin] (BBC Radio)", type: "voice" },
       { tag: "Smiley's People", label: "Smiley's People", year: 1982, role: "Mr. Brownlow (BBC TV)", type: "tv" },
       { tag: "The Barchester Chronicles", label: "The Barchester Chronicles", year: 1982, role: "Obadiah Slope (BBC TV)", type: "tv" },
-
+      { tag: "Dutch Courtesan", label: "The Dutch Courtesan (by Marston, adapt. Peter Barnes)", year: 1982, role: "Cocledemoy (BBC Radio 3 — first broadcast 18 Nov 1982; rpt 19 Jun 1983; dir. Ian Cotterell)", type: "voice" },
+     
       // ---- 1983 ----
-      { tag: "Polly", label: "Polly (by John Gay)", year: 1983, role: "Performer (BBC Radio 3)", type: "voice" },
+      { tag: "Polly", label: "Polly (by John Gay)", year: 1983, role: "Performer (BBC Radio 3 — Jan 1983)", type: "voice" },
       { tag: "Busted", label: "Busted", year: 1983, role: "Simon (BBC1 Play for Today)", type: "tv" },
       { tag: "Other Worlds", label: "Other Worlds (by Robert Holman)", year: 1983, role: "Assistant director (Royal Court Theatre — stage)", type: "stage" },
-      { tag: "Actors", label: "Actors, or Playing for Real (adapted by Peter Barnes)", year: 1983, role: "Carinus (BBC radio drama)", type: "voice" },
-      { tag: "Dutch Courtesan", label: "The Dutch Courtesan (by Marston)", year: 1983, role: "Cocledemoy (BBC Radio 3)", type: "voice" },
+      { tag: "Actors", label: "Actors, or Playing for Real (adapted by Peter Barnes from Lope de Vega)", year: 1983, role: "Carinus (BBC Radio 3 — 29 Sep 1983; dir. Ian Cotterell)", type: "voice" },
       { tag: "Bad Language", label: "Bad Language (by Dusty Hughes)", year: 1983, role: "Bob Thomas (Hampstead Theatre — stage)", type: "stage" },
-      { tag: "Rope", label: "Rope (by Patrick Hamilton)", year: 1983, role: "Rupert Cadell (BBC Radio 4)", type: "voice" },
+      { tag: "Rope", label: "Rope (by Patrick Hamilton)", year: 1983, role: "Rupert Cadell (BBC Radio 4 Saturday Night Theatre — 1983; dir. John Tydeman)", type: "voice" },
       { tag: "The Grass Widow", label: "The Grass Widow (by Snoo Wilson)", year: 1983, role: "Dennis (Royal Court Theatre — stage)", type: "stage" },
+      { tag: "Caught on the Crossing", label: "Caught on the Crossing (by Manny Draycott)", year: 1983, role: "Anthony (BBC Radio 3 — 13 Oct 1983; rpt 10 Jun 1984; dir. Cherry Cookson)", type: "voice" },
 
       // ---- 1984 ----
       { tag: "Lucky Chance", label: "The Lucky Chance (by Aphra Behn)", year: 1984, role: "Gayman (Royal Court Theatre — stage)", type: "stage" },
+      { tag: "Lorenzaccio Story", label: "The Lorenzaccio Story (by Paul Thompson after Alfred de Musset)", year: 1984, role: "Piero Strozzi (BBC Radio 3 — 16 Sep 1984; dir. Margaret Windham)", type: "voice" },
 
       // ---- 1985 ----
+      { tag: "Contemplative Life", label: "The Contemplative Life (by Marcy Kahan)", year: 1985, role: "Brother James (BBC Radio 3 — 1 Sep 1985; dir. Cherry Cookson)", type: "voice" },
       { tag: "Return of the Native", label: "The Return of the Native", year: 1985, role: "Narrator (audiobook)", type: "voice" },
       { tag: "Wetherby", label: "Wetherby", year: 1985, role: "A television commentator glimpsed on a screen — his first appearance in a feature film", type: "film" },
-      { tag: "Good Man in Africa", label: "A Good Man in Africa (based on the novel by William Boyd)", year: 1985, role: "Lead role (BBC Radio 4)", type: "voice" },
+      { tag: "Good Man in Africa", label: "A Good Man in Africa (based on the novel by William Boyd, dram. Stephen Davis)", year: 1985, role: "Morgan Leafy (BBC Radio 4 — first broadcast 18 Mar 1985; dir. Richard Wortley)", type: "voice" },
       { tag: "As You Like It", label: "As You Like It", year: 1985, role: "Jaques (RSC, Stratford → Barbican Theatre — stage, reprising the role)", type: "stage" },
-      { tag: "Gridlock", label: "Gridlock (by Nigel Gearing)", year: 1985, role: "Charles (BBC Radio 3)", type: "voice" },
+      { tag: "Gridlock", label: "Gridlock (by Nigel Gearing)", year: 1985, role: "Charles (BBC Radio 3 — 22 May 1985; rpt 23 Feb 1986; dir. Cherry Cookson)", type: "voice" },
       { tag: "Troilus and Cressida", label: "Troilus and Cressida", year: 1985, role: "Achilles (RSC — stage)", type: "stage" },
       { tag: "Pity in History", label: "Pity in History (by Howard Barker)", year: 1985, role: "Croop (BBC2 Playhouse)", type: "tv" },
       { tag: "Les Liaisons Dangereuses", label: "Les Liaisons Dangereuses", year: 1985, role: "Vicomte de Valmont (The Other Place 1985 → Barbican Pit 1986 → Ambassadors, West End 1986 → Music Box, Broadway 1987)", type: "stage", awards: AWARDS_BY_WORK["Les Liaisons Dangereuses"] },
       { tag: "Barnes People", label: "Barnes' People", year: 1985, role: "Director (RSC, The Other Place)", type: "stage" },
       { tag: "Gone to Heaven", label: "Gone to Heaven (Back Soon)", year: 1985, role: "Performer (RSC, The Other Place — stage)", type: "stage" },
       { tag: "Girls on Top", label: "Girls on Top", year: 1985, role: "Dmitri, plus voice work (ITV — 2 episodes)", type: "tv" },
-      { tag: "Magic of My Youth", label: "The Magic of My Youth (memoir by Arthur Calder-Marshall)", year: 1985, role: "Performer (BBC Radio)", type: "voice" },
+      { tag: "Magic of My Youth", label: "The Magic of My Youth (memoir by Arthur Calder-Marshall, abridged by David Burke)", year: 1985, role: "Reader (BBC Radio — five-part reading)", type: "voice" },
+      { tag: "Trick to Catch", label: "A Trick to Catch the Old One (by Middleton, adapt. Peter Barnes)", year: 1985, role: "Theodorus Witgood (BBC Radio 3 — first broadcast 25 Sep 1985; rpt 6 Jan 1989; dir. Ian Cotterell)", type: "voice" },
 
       // ---- 1986 ----
       { tag: "Blood Wedding Radio", label: "Blood Wedding (by Lorca — radio version)", year: 1986, role: "Leonardo (BBC Radio)", type: "voice" },
       { tag: "Blind Corner", label: "Blind Corner (based on the novel by Dornford Yates)", year: 1986, role: "Narrator (unabridged audiobook)", type: "voice" },
       { tag: "Mephisto", label: "Mephisto", year: 1986, role: "Hendrik Höfgen (RSC, Barbican Theatre — stage)", type: "stage" },
-      { tag: "That Man Bracken", label: "That Man, Bracken (by Thomas Kilroy)", year: 1986, role: "Brendan Bracken (BBC Radio 3)", type: "voice" },
+      { tag: "That Man Bracken", label: "That Man, Bracken (by Thomas Kilroy)", year: 1986, role: "Brendan Bracken (BBC Radio 3 — 20 Jun 1986; rpt 13 Jan 1987; dir. Robert Cooper, BBC Manchester)", type: "voice" },
       { tag: "Blood on the Neck of the Cat", label: "Blood on the Neck of the Cat", year: 1986, role: "Director (RSC Young People's Theatre, Almeida Theatre — stage)", type: "stage" },
       { tag: "Live Wax", label: "Live Wax (Ruby Wax's one-woman show)", year: 1986, role: "Director (Edinburgh Festival)", type: "stage" },
 
       // ---- 1987 ----
-      { tag: "Don't Miss Wax", label: "Don't Miss Wax (Ruby Wax's late-night talk show)", year: 1987, role: "Co-writer (Season 1)", type: "tv" },
-
+     { tag: "Seagull Radio", label: "The Seagull (radio version, by Thomas Kilroy after Chekhov)", year: 1987, role: "Mr. Aston (BBC Radio 4 Saturday-Night Theatre / World Service — 18 Apr 1987; dir. David Hitchinson)", type: "voice" },
+     { tag: "Don't Miss Wax", label: "Don't Miss Wax (Ruby Wax's late-night talk show)", year: 1987, role: "Co-writer (Season 1)", type: "tv" },
 
       // ---- 1988 ----
       { tag: "True Stories", label: "True Stories", year: 1988, role: "Narrator (documentary episode)", type: "voice" },
@@ -2095,9 +1991,8 @@ const WW_PERIODS = [
       { tag: "Revolutionary Witness", label: "Revolutionary Witness", year: 1989, role: "Jacques Roux ('The Preacher' episode — BBC TV short)", type: "tv" },
       { tag: "Spirit of Man", label: "ScreenPlay: The Spirit of Man", year: 1989, role: "Israel Yates ('From Sleep and Shadow' episode — BBC TV)", type: "tv" },
       { tag: "Benefactors", label: "Benefactors", year: 1989, role: "Colin (Theatre Night, S4.E6 — BBC TV)", type: "tv" },
-      { tag: "A Little Like Drowning", label: "A Little Like Drowning", year: 1989, role: "Alfredo (BBC Radio drama — written by Anthony Minghella)", type: "voice" },
-      { tag: "Trick to Catch", label: "A Trick to Catch the Old One (by Middleton)", year: 1989, role: "Theodorus Witgood (BBC Radio 4)", type: "voice" },
-      { tag: "Billy and Me", label: "Billy and Me (by Peter Barnes)", year: 1989, role: "Michael Jennings, a ventriloquist (BBC Radio 3 monologue, More Barnes’ People — broadcast c. 1989–90)", type: "voice" }
+      { tag: "A Little Like Drowning", label: "A Little Like Drowning (by Anthony Minghella)", year: 1989, role: "Alfredo (BBC Radio 4 Monday Play — 20 Mar 1989)", type: "voice" },
+      { tag: "Billy and Me", label: "Billy and Me (by Peter Barnes)", year: 1989, role: "Michael Jennings, a ventriloquist (BBC Radio 3 monologue, More Barnes' People)", type: "voice" }
     ]
   },
   {
@@ -2480,6 +2375,12 @@ function sanitizeUrl(url) {
   }
 }
 
+function normQuotes(s) {
+  return String(s || "")
+    .replace(/[\u2018\u2019\u201B\u2032]/g, "'")
+    .replace(/[\u201C\u201D\u201E]/g, '"');
+}
+
 function buildTrigrams(str) {
   const s = str.toLowerCase().replace(/\s+/g, "");
   if (!s) return new Set();
@@ -2543,9 +2444,8 @@ function getWorkMatchers(tag) {
 function getItemHaystack(item) {
   let hay = ITEM_HAYSTACK_CACHE.get(item);
   if (hay === undefined) {
-    hay = [item.title, item.subtitle || "", ...(item.tags || [])]
-      .join(" ")
-      .toLowerCase();
+  hay = normQuotes([item.title, item.subtitle || "", ...(item.tags || [])].join(" "))
+  .toLowerCase();
     ITEM_HAYSTACK_CACHE.set(item, hay);
   }
   return hay;
@@ -2569,7 +2469,7 @@ function getMatchedWorks(item) {
 }
 
 function findMatchedWorks(query) {
-  const q = query.trim().toLowerCase();
+  const q = normQuotes(query).trim().toLowerCase();
   if (q.length < 2) return [];
   return ALL_WORKS.filter((work) => {
     const keys = WORK_KEYWORDS[work.tag] || [work.tag.toLowerCase()];
@@ -2578,9 +2478,9 @@ function findMatchedWorks(query) {
         const kLower = k.toLowerCase();
         return kLower.includes(q) || q.includes(kLower);
       }) ||
-      work.label.toLowerCase().includes(q) ||
+      normQuotes(work.label).toLowerCase().includes(q) ||
       work.tag.toLowerCase().includes(q) ||
-      (work.role || "").toLowerCase().includes(q)
+      normQuotes(work.role).toLowerCase().includes(q)
     );
   });
 }
@@ -2605,7 +2505,7 @@ function expandSearchTerms(query) {
 }
 
 function searchItems(query, items) {
-  const q = query.trim().toLowerCase();
+  const q = normQuotes(query).trim().toLowerCase();
   if (!q) return items;
 
   const YT_KEYWORDS = ["youtube", "yt", "video", "clip"];
@@ -2617,11 +2517,13 @@ function searchItems(query, items) {
 
   return items
     .map((item) => {
-      const title = item.title.toLowerCase();
-      const subtitle = (item.subtitle || "").toLowerCase();
-      const tags = (item.tags || []).join(" ").toLowerCase();
+      const title = normQuotes(item.title).toLowerCase();
+      const subtitle = normQuotes(item.subtitle).toLowerCase();
+      const tags = normQuotes((item.tags || []).join(" ")).toLowerCase();
       const url = (item.url || "").toLowerCase();
-      const notes = (item.notes || []).join(" ").toLowerCase();
+      const notes = normQuotes((item.notes || []).join(" ")).toLowerCase();
+
+
 
       const matchedWork = getMatchedWorks(item)[0];
       const awards = matchedWork
@@ -3047,7 +2949,6 @@ function computeActiveLabel() {
 
 (function () {
   const el = {
-    loader: document.getElementById("loader"),
     sidebar: document.getElementById("sidebar"),
     sidebarOverlay: document.getElementById("sidebar-overlay"),
     sidebarToggle: document.getElementById("sidebar-toggle"),
@@ -3102,23 +3003,6 @@ function computeActiveLabel() {
         if (photo.naturalWidth === 0) hide();
       });
     }
-  }
-
-  function hideLoader() {
-    el.loader.classList.add("is-hidden");
-  }
-
-  try {
-    state.items = ALL_DATA;
-    applySidebarVisibility();
-    setupSidebarPhoto();
-    subscribe(render);
-    render();
-    bindEvents();
-  } catch (err) {
-    console.error("Archive failed to initialise:", err);
-  } finally {
-    window.setTimeout(hideLoader, 300);
   }
 
   function bindEvents() {
@@ -3623,7 +3507,19 @@ function computeActiveLabel() {
     }
     el.loadingMore.hidden = state.displayCount >= sorted.length;
   }
+
+  try {
+    state.items = ALL_DATA;
+    applySidebarVisibility();
+    setupSidebarPhoto();
+    subscribe(render);
+    render();
+    bindEvents();
+  } catch (err) {
+    console.error("Archive failed to initialise:", err);
+  }
 })();
+
 </script>
 </body>
 </html>
